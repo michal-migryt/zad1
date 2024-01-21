@@ -3,6 +3,11 @@ Utworzenie namespace'a - namespace.yaml
 <br>
 ![image](https://github.com/michal-migryt/zad1/assets/65659701/85f9b0bc-127b-4bac-9e98-b548439073d2)
 <br>
+Dodatkowo potrzebny będzie dodatek metrics-server, poniewaz z nim komunikować się będzie auto-scaler.
+Polecenie do uruchomienia go:
+<br>
+minikube addons enable metrics-server
+<br>
 1 Ograniczenia zasobów dla ns zad5 - resource-quota.yaml
 <br>
 ![image](https://github.com/michal-migryt/zad1/assets/65659701/83b2337c-86ba-42bf-ba46-aacd6a704251)
