@@ -1,0 +1,23 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: php-apache-autoscaler
+  namespace: zad5
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50 
+# max replicas = 5 poniewaz po uruchomieniu workera, uwzgledniajac jego limits zostaje 1336 Mi pamieci RAM,
+# a kazdy pod apache bedzie uzywac maksymalnie 250 Mi to wychodzi 1336/250 = 5 (calkowite), o procesor nie trzeba sie
+# martwic, bo na nim jest wiekszy zapas
+
